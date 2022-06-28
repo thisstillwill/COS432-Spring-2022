@@ -1,0 +1,17 @@
+Assignment 5: Web Security (Group Assignment)
+
+Part 4. Writeup: Better Defenses
+
+1. SQL Injection
+
+The MD5 hashing algorithm is an insufficient method of defending against SQL injections because the algorithm is liable to produce the same output for two different strings. This means that searching for an output that produces some desired string (i.e., a SQL injection statement) can be done in a reasonable amount of time. Rather than relying on the MD5 hashing algorithm, the developers of Bungle! should instead use a more robust hashing algorithm that is collision resistant like SHA-256. Additionally, the developers of Bungle! can use prepared statements to distinguish between their own SQL statements and user-supplied strings, which further defends against SQL injection attacks.
+
+
+2. Cross-site Request Forgery (CSRF)
+
+The website's CSRF vulnerability comes from its use of a hidden form input to verify the validity of a cookie during log-in. This allows a malicious user to manually set the cookie and the hidden form input to have the same value, which will then be accepted by the server. To help solve this problem, the server can implement the Double Submit Cookie approach (as outlined by OWASP). In this approach, the server uses a private key to encrypt the CSRF token's value; then the server can set two cookies: one with the CSRF token's plaintext value and another with the CSRF token's encrypted value. Whenever a user submits the log-in form, the server can check that decrypting the encrypted token with its secret key yields the same value as the plaintext token. If they match, then the server can check that the plaintext token's value matches the value of the hidden form input. If these values are all the same, then the user is properly authenticated. Additionally, malicious users will not be able to properly encrypt a forged token's values (since they will not have access to the server's secret key), which means that they will not be able to forge an authentication request.
+
+
+3. Cross-site Scripting (XSS)
+
+Rather than removing blacklisted characters from a user's search query, one potential method of preventing cross-site scripting is to only display certain whitelisted characters (e.g., alphanumeric characters) in a user's search history; this prevents a user from supplying any string that contains characters that the browser can interpret as executable code. Another approach could be to replace all characters with their corresponding HTML entity encoding. This allows the user's search query to be safely displayed on the screen without being interpreted as code. Notably, all user-supplied strings (such as search queries and even usernames) should be HTML entity encoded whenever they need to be rendered on a page.

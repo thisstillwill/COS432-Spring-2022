@@ -1,0 +1,98 @@
+COS 432 Assignment 4: Network Security
+Part 3: Penetration Testing
+
+================================================================================
+
+1. How many possible Wi-Fi passwords are there that fulfills the password format?
+
+There are 2 * (26 + 26 + 10)^3 = 476656 possible passwords.
+
+================================================================================
+
+2. What is that actual Wi-Fi password used? How did you obtain that password?
+
+The Wi-Fi password is cos432-h4Z. We wrote a small Python script that wrote every possible password (using the two known prefixes and the 62 possible values for each of the 3 characters that could follow each prefix) to a file. This file was fed to aircrack-ng along with the BSSID and the necessary pcap file.
+
+================================================================================
+
+3. There are three machines in the network, namely the employee, the firewall, and the mainframe.
+
+a. What are their IP addresses, respectively? (If a machine has multiple interfaces, report all IP addresses.) How did you get these addresses?
+
+Client: 18.223.158.90
+Firewall: 10.0.7.36 and 18.117.230.62
+Mainframe: 10.0.72.245
+
+We found these addresses by filtering in Wireshark for SSL and HTTP traffic, using the order, timing, and protocol of the packets to determine the identity of each IP.
+
+b. What services are currently running on these machines respectively? On which port is each service running? How did you obtain this information?
+
+Client (18.223.158.90):
+PORT    STATE    SERVICE
+22/tcp  open     ssh
+25/tcp  filtered smtp
+111/tcp open     rpcbind
+
+Firewall (10.0.7.36):
+PORT    STATE SERVICE
+22/tcp  open  ssh
+80/tcp  open  http
+111/tcp open  rpcbind
+443/tcp open  https
+
+Mainframe (10.0.72.245):
+PORT    STATE SERVICE
+22/tcp  open  ssh
+111/tcp open  rpcbind
+234/tcp open  unknown
+
+We used nmap in order to scan the first 1000 ports on each machine using their corresponding IP address.
+
+================================================================================
+
+4. List all of the clients of the company. Briefly explain how you gained access to this client list.
+
+Clients:
+Christopher Eisgruber
+Donald Knuth
+Paul Nakasone
+
+We found the username, password, for the mainframe's admin account using Wireshark. The Wireshark packet info included the URL for a "/admin" route on the mainframe. We made a GET request to this URL using wget and the username and password from Wireshark, which returned an HTML file with FTP credentials:
+
+wget --http-user=admin --http-password=Fa1ZQxsADEULlW0nzitnopX01 http://10.0.72.245:47923/admin/
+
+Using these credentials, we connected to the ftp server on the mainframe (port 234) using the given credentials:
+
+ftp -n 10.0.72.245 234
+user bob
+pass sufficiently-strong-non-bruteforceable-password
+
+From here, we were able to navigate down Bob's directory until we found and downloaded the file "client_list.txt".
+
+================================================================================
+
+5. There are unencrypted and encrypted conversations between Alice and Bob.
+
+a. What does the unencrypted conversation say? Please paste it here and briefly describe how you found and obtained the content.
+
+Alice:  I heard you got a job at that terrible company...
+Bob:    Yeah. I may be sacrificing my morals and dignity, but they pay well.
+Alice:  No one will ever take you seriously again.
+Bob:    What's that? I can't hear you.
+Bob:    I'm listening to Spotify *Premium* through my *Airpods*.
+Alice:  You're disgusting. Anyway, make sure to encrypt all of our communications.
+Bob:    Of course! I found this guide that said to use a one time pad.
+Alice:  What do you think they mean by one time?
+Bob:    No idea! Hopefully nothing important.
+
+We used the following commands to secure the file permissions for Bob's private key "bob.pem" in our .ssh subdirectory on the firewall. Then we used the private key and known hosts file to ssh into the client machine as Bob.
+
+chmod 600 .ssh/bob.pem
+ssh -i .ssh/bob.pem -o UserKnownHostsFile=.ssh/known_hosts bob@18.223.158.90
+
+After we logged into the client machine as Bob, we were able to get the unencrypted and encrypted conversations.
+
+b. (extra credit) Can you decrypt the encrypted messages? If so, what does the plaintext say? Describe how you determined the plaintext contents of the encrypted messages.
+
+
+================================================================================

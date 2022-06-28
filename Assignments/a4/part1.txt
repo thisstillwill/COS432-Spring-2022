@@ -1,0 +1,86 @@
+COS 432 Assignment 4: Network Security
+Part 1: Exploring Network Traces
+
+================================================================================
+
+1. There are no more than five devices actively communicating on the local area network. What are their MAC and IP addresses? Who manufactured these devices?
+
+Device 1: MAC 00:1e:8c:ea:1a:b4, IP 10.0.2.191, ASUS
+Device 2: MAC 00:1f:c6:8f:29:17, IP 10.0.2.231, ASUS
+Device 3: MAC a4:2b:8c:f6:eb:81, IP 10.0.2.1, Netgear
+Device 4: MAC 00:12:17:31:10:7c, IP 67.194.192.1, Cisco
+Device 5: MAC 00:1f:6d:e8:18:00, IP N/A, Cisco
+
+================================================================================
+
+2. What type of network does this appear to be (e.g., a large corporation, an ISP back- bone, etc.)? Point to evidence from the trace that supports this.
+
+It appears to be a University's local network. Much of the traffic is between computers on the network and a core shared router (core-lewis-router.princeton.edu, most likely located in Lewis at Princeton).
+
+================================================================================
+
+3. One of the clients connects to an FTP server during the trace.
+
+a. What is the DNS hostname of the server it connects to?
+
+The DNS hostname is dl.xs4all.nl
+
+b. Is the connection using Active or Passive FTP?
+
+The connection is using Active FTP, because the client uses the PORT command.
+
+c. Based on the packet capture, what is one major vulnerability of the FTP protocol?
+
+The login information (username/password) sent over FTP is in plaintext and is visible to the adversary.
+
+d. Name at least two network protocols that can be used in place of FTP to provide secure file transfer. Use the associated acronyms.
+
+Two alternative protocols are Secure File Transfer Protocol (SFTP) and Secure Copy Protocol (SCP).
+
+================================================================================
+
+4. The trace shows that at least one of the clients makes HTTPS connections to sites other than Facebook. Pick one of these connections and answer the following:
+
+a. What is the domain name of the site the client is connecting to?
+
+The domain name of the site is www.evernote.com (IP 204.154.9481).
+
+b. Is there any way the HTTPS server can protect against the leak of information in (a)? If yes, explain why. If no, explain why not.
+
+No, the HTTPS protocol only protects the security and integrity of the communication between the client and server. Certain information from the server (such as the public key that it uses for encryption or its domain name) is required to be public.
+
+c. During the TLS handshake, the client provides a list of supported cipher suites. List the first three cipher suites and name the cryptographic algorithms used in each.
+
+Cipher Suite 1: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA using Elliptic Curve Diffie-Hellman, Elliptic Curve Digital Signature Algorithm, AES-256-CBC, and SHA 256
+Cipher Suite 2: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA using Elliptic Curve Diffie-Hellman, RSA, AES-256-CBC, and SHA 256
+Cipher Suite 3: TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA using Diffie-Hellman, RSA, Camellia-256-CBC, and SHA 256
+
+d. Are any of these cipher suites worrisome from a security or privacy perspective? Why?
+
+Yes, because several of the cipher suites (like SSL_RSA_FIPS_WITH_3DES_EDE_CBC_SHA) use the 3DES encryption cipher. 3DES can only encrypt at most 64-bits of plaintext at a time. This means that two consecutive ciphertext blocks are more likely to be the same, which means that the adversary is more likely to see the XOR of two consecutive plaintext blocks. This means that the adversary could attack the confidentiality of the plaintext blocks, especially if they contain non-random information.
+
+e. What cipher suite does the server choose for the connection?
+
+The server uses TLS_RSA_WITH_AES_256_CBC_SHA.
+
+================================================================================
+
+5. One of the clients makes a number of requests to Facebook.
+
+a. Even though logins are processed over HTTPS, what is insecure about the way the browser is authenticated to Facebook?
+
+The browser is authenticated to Facebook by sending cookies over an HTTP request. This is insecure because it assumes that anyone with the client's cookies is the client. Additionally, this is insecure because it means an adversary is able to see these cookies in plaintext.
+
+b. How would this let an attacker impersonate the user on Facebook?
+
+Since the cookies are sent as plaintext over an HTTP request, an adversary could simply copy the cookies and use them to resume the client's session, thereby impersonating the client.
+
+c. How can users protect themselves against this type of attack?
+
+End-to-end encryption of cookies (and session tickets) would help prevent this attack; however, since users cannot implement this on their own, they cannot do much to prevent this attack. A user can try to manually erase all cookies and logout of all sessions to prevent session resumption (and invalidate the previous cookies and/or session tickets).
+
+d. What did the user do while on the Facebook site?
+
+The user browsed Facebook, clicked on links, received notifications, and sent/received messages (including image attachments). In particular, the user searched for Zakir Durumeric (a Stanford assistant professor) and sent the following message to another user: "Остановить нюхают My WiFi!"
+
+================================================================================

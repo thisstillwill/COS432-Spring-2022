@@ -1,0 +1,21 @@
+IRC Log
+
+13:50:25|Bob>Hi Alice
+13:54:31|Alice>Hello Bob
+13:54:56|Bob>Do you the target information?
+13:55:09|Alice>Yes
+13:55:09|Alice>Louie D. Velazquez
+13:55:09|Alice>2905 Meadowbrook Mall Road
+13:55:09|Alice>Colorado Springs, CO 80901
+13:55:30|Bob>Do you have where they work?
+13:55:43|Alice>I will send the full dossier
+13:55:53|Alice>Make sure to store it encrypted
+13:58:16|Bob>Okay
+13:58:19|Bob>Don't worry I will encrypt all of it
+13:58:23|Bob>I'll use a special method I added to the encryption program to confuse them too
+13:59:53|Alice>Great.  I'll send you a link to download their picture too since it's to big to send here
+
+#boxhaul scuttle
+
+
+

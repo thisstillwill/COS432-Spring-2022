@@ -1,0 +1,11 @@
+Facebook - Chat Log
+
+13:40:25|Bob>Hi Alice
+13:44:31|Alice>Hello Bob
+13:44:56|Bob>Do you have my itinerary?
+13:45:09|Alice>Yes, I will send them over
+13:45:30|Bob>Not on here
+13:45:43|Alice>Okay, I will send them to your email drop.
+13:48:16|Bob>Okay
+
+#diesis bethink

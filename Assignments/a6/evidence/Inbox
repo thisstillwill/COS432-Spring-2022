@@ -1,0 +1,566 @@
+From - Tue Aug 21 00:30:10 2018
+X-Account-Key: account1
+X-UIDL: GmailId1655ab6732a4e4c7
+X-Mozilla-Status: 0009
+X-Mozilla-Status2: 00000000
+X-Mozilla-Keys:                                                                                 
+Delivered-To: secret.maildrop.sketchycorp@gmail.com
+Received: by 2002:a02:560b:0:0:0:0:0 with SMTP id o11-v6csp4616225jab;
+        Mon, 20 Aug 2018 21:24:31 -0700 (PDT)
+X-Received: by 2002:a17:902:bcc6:: with SMTP id o6-v6mr48014377pls.117.1534825231870;
+        Mon, 20 Aug 2018 21:20:31 -0700 (PDT)
+X-Received: by 2002:a17:902:bcc6:: with SMTP id o6-v6mr48014356pls.117.1534825231059;
+        Mon, 20 Aug 2018 21:20:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1534825231; cv=none;
+        d=google.com; s=arc-20160816;
+        b=AxbXSNMwqKbFjHSmCaaxN76lOOIeF/VBYag2y5ZiEMc69sKQjU9P5YmTSRC7oDKFvv
+         2eFuOBeTkYsoZlQUhHDoQJqI1cw10yPHtKiq57BPbATEMteWYiKht657GNcSpXewdI4A
+         iF2qdwlTtv94lUqZ57+G7Z2flUdRQ1rXBEvR2GtmJQ5jmpXl/QhpPYHcyEhepIuQ7anG
+         nm0ISWWd3omS/T/fL2aowfne6pqqD/Ui3fFfsWX/i+c0WYVcHicim2IvHQqK+69p3bZD
+         P28mSyFB1aETMLnqN7Gs0RDeh5nIFdXOJLWxC5QLJKRjBKIvrtNt6mFRxX0D6OP3sTTg
+         JIYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature
+         :arc-authentication-results;
+        bh=hm4jQpXa4Jdo9wXj87IBS5GrOj89OqW3Zw2orNH/Jgk=;
+        b=m6TxRZw8i6R+CMxewbgBfUikdiZ0V2862hF4mW3Yjsp39pp/JDP1cFwgupOKkKZV3Y
+         ni5R6Bf3blbJeYUlvhX4ieX2R6SfL1H1wDtg39MiDEsaWrgoGl6gktBhviba0EHoDWFj
+         IVAPDykDKML3wpNU9ebxyN0kMMHotg+uYrQIb9BYpLD/G9VDibSjWtLTmv/eSHHIxesa
+         rJGTeLXhDO6GeykXnWQziw1WlC3JtG9rE2fOtTTGtPSmw3ROPicw+Gby8OzZH2vAbPTp
+         oeCFz4fyzkpsR5ZJUoFcPoZQCUiCmQ8wD6Q/aoHpxCo5qKY6z0mSsjA9YmltKt8ixCuk
+         EBag==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=iuQvDovk;
+       spf=pass (google.com: domain of secret.mailsend.sketchycorp@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=secret.mailsend.sketchycorp@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <secret.mailsend.sketchycorp@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id m125-v6sor2859935pgm.6.2018.08.20.21.20.30
+        for <secret.maildrop.sketchycorp@gmail.com>
+        (Google Transport Security);
+        Mon, 20 Aug 2018 21:20:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of secret.mailsend.sketchycorp@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=iuQvDovk;
+       spf=pass (google.com: domain of secret.mailsend.sketchycorp@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=secret.mailsend.sketchycorp@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=hm4jQpXa4Jdo9wXj87IBS5GrOj89OqW3Zw2orNH/Jgk=;
+        b=iuQvDovkG1TMPCtBb5ovjUPYgIkXrMqVBsVWJWyMlaIZu9a0dfHbcvHbuBN6du76yS
+         YcQveX0+hjQkA87Bmmjwwz/+ocHr0Sv4IWEM0lSD7DrPfDCv7+/8DRvGu9FllLlBY36t
+         Xfq4kGMBz5cyst3T1DQzKT/4Gb9qvTQnJiW+UrUfJLBA6z7IgaIELpPH/c1Zj/MV1L7C
+         S2DbFti51ekNR4geUsm6kPp+aZyRymKIOeIhkediypPJL/IGBRdGtQVCFhtHcigVQcHF
+         ZHIUed1gumF448c8SG7cv1/D9yxMBLzQNyopUkd2JCHlSN2z0C85RZjlkQUCm9Nm/DPU
+         dUHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=hm4jQpXa4Jdo9wXj87IBS5GrOj89OqW3Zw2orNH/Jgk=;
+        b=sIBHmO8R2SDgU/ng8e3hAzGAlaZYOPryy4CXRRmsrwaTHWWApS/esSBC1dpvHMiC3h
+         2GOmMx7RklcKdQA0VipMxSk79r6flKCtFIBp7+bv2DpH/SpfzbSnSru6IvdP+IgQxsZ9
+         Cusg09DRzJeeib2e473zqCXboFaV2zRvj/oaBTliDi7LPrv8fZjQL0p/CK+CEkt95Shg
+         ZQEy5SJvtzzMqwsflXp0K/cWvrUO28Iy2AYFRyX6aYLE+sC/nYiDcf/1A5LNt/XziTRy
+         MIm+Ut3eTEHc2O+9NIKJMskN4h4fyqbm2b21JlQe7mqrQAC6lgwIfFd9NtmtP929otQB
+         KRqw==
+X-Gm-Message-State: AOUpUlFXoFadG0FYyccd8EwT7SUwLU3EoXYAwu9K+ZKMvP0Ypf0a++tu
+	/yT+ChKi9l+q6ltCQjGUGsWU4x2mS1wvnovKaGRtOMJiHr4=
+X-Google-Smtp-Source: AA+uWPx5m+6e/YLvcFfxdC6OAciDB5dxKaU/pWJflmFXeOfvs2QMoMIbfg1IFduJDY/ljQLxFJxZO63oEz+7IOYvCwY=
+X-Received: by 2002:a63:d002:: with SMTP id z2-v6mr46422163pgf.262.1534825230593;
+ Mon, 20 Aug 2018 21:20:30 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:a17:90a:d34f:0:0:0:0 with HTTP; Mon, 20 Aug 2018 21:20:30
+ -0700 (PDT)
+From: Alice Johnson <secret.mailsend.sketchycorp@gmail.com>
+Date: Tue, 21 Aug 2018 00:20:30 -0400
+Message-ID: <CAD3XvCxE3sxWpEMgry7ScSo0jZgbGY_o5J5wErLOKLvzTz6VKQ@mail.gmail.com>
+Subject: Travel Itinerary
+To: secret.maildrop.sketchycorp@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000a974580573ea58fa"
+
+--000000000000a974580573ea58fa
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+[image: FRONTIER Low Fares Done Right]
+<https://emails.flyfrontier.com/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGNn1wHU=
+IHIbM3uDDdubLzc4ioa8ozcTCbTrRKucEGzdhmSi6p2FVXtpKX%3DYYWRT&_ei_=3DEq2tf9zs5=
+9idfPO1Sc_9Bbn_G86ig1Slim18n20HOSnW7ymUX-yPxNPvKLNrtQGTe7UeSzzwDI7-gGlvjQbx=
+vVZI_g.>
+
+READY FOR YOUR FLIGHT?
+Your flight with us is coming up! Check out important information below!
+FLIGHT ITINERARY
+
+YOUR TRIP CONFIRMATION CODE IS *VD9D3423*
+Get your boarding pass once you've checked=E2=80=91in =E2=80=93 available 2=
+4 hours before
+your flight.
+Departing Flight 6261
+Aug. 20, 2018
+TTN
+8:45 PM COS
+10:34 PM
+
+   Total Time: 1 hrs 49 min | Nonstop
+FRONTIER TRIP CHECKLIST
+
+Here is your travel itinerary.  I will send the target info over IRC.
+
+
+-Bob
+
+--000000000000a974580573ea58fa
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" st=
+yle=3D"border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font=
+-size:small;text-decoration-style:initial;text-decoration-color:initial;wid=
+th:600px;max-width:600px;background-color:rgb(0,172,236)"><tbody><tr><td he=
+ight=3D"50" class=3D"gmail-m_2617566518690569878mbl-preheader" style=3D"fon=
+t-family:&quot;Trebuchet MS&quot;,Arial,sans-serif;margin:0px;border-collap=
+se:collapse;height:50px;font-size:13px;line-height:28px;color:rgb(255,255,2=
+55);text-align:center"></td></tr></tbody></table><table align=3D"center" ce=
+llspacing=3D"0" cellpadding=3D"0" border=3D"0" class=3D"gmail-m_26175665186=
+90569878mbl-margin-top" style=3D"border-collapse:collapse;font-family:Arial=
+,Helvetica,sans-serif;font-size:small;text-decoration-style:initial;text-de=
+coration-color:initial;width:564px;max-width:564px"><tbody><tr><td align=3D=
+"left" class=3D"gmail-m_2617566518690569878logo-cell" style=3D"font-family:=
+Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0px;border-collapse:co=
+llapse;width:378px;padding-top:20px;padding-right:45px"><a href=3D"https://=
+emails.flyfrontier.com/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGNn1wHUIHIbM3uDD=
+dubLzc4ioa8ozcTCbTrRKucEGzdhmSi6p2FVXtpKX%3DYYWRT&amp;_ei_=3DEq2tf9zs59idfP=
+O1Sc_9Bbn_G86ig1Slim18n20HOSnW7ymUX-yPxNPvKLNrtQGTe7UeSzzwDI7-gGlvjQbxvVZI_=
+g." target=3D"_blank" style=3D"color:rgb(17,85,204);text-decoration:none"><=
+img src=3D"https://static.cdn.responsys.net/i2/responsysimages/content/fron=
+tiera/Logo.png" width=3D"220" alt=3D"FRONTIER Low Fares Done Right" class=
+=3D"gmail-CToWUd" style=3D"border: 0px; width: 220px; max-width: 220px; dis=
+play: block; padding: 0px; outline: 0px; font-family: &quot;Trebuchet MS&qu=
+ot;, Arial, sans-serif; font-size: 14px; line-height: 20px; color: rgb(0, 1=
+02, 67);"></a></td><td align=3D"center" class=3D"gmail-m_261756651869056987=
+8animal-cell" style=3D"font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-=
+serif;margin:0px;border-collapse:collapse;width:141px"><img src=3D"https://=
+static.cdn.responsys.net/i2/responsysimages/content/frontiera/griz_crop.png=
+" width=3D"116" alt=3D"" class=3D"gmail-CToWUd" style=3D"width: 116px; max-=
+width: 116px; display: block; padding: 0px; outline: 0px; border: 0px; font=
+-family: &quot;Trebuchet MS&quot;, Arial, sans-serif; font-size: 14px; line=
+-height: 20px; color: rgb(0, 102, 67);"></td></tr></tbody></table><table wi=
+dth=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"bord=
+er-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:small=
+;text-decoration-style:initial;text-decoration-color:initial;width:600px;ma=
+x-width:600px"><tbody><tr><td style=3D"font-family:Roboto,RobotoDraft,Helve=
+tica,Arial,sans-serif;margin:0px;border-collapse:collapse"><table width=3D"=
+100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-coll=
+apse:collapse;width:600px"><tbody><tr><td height=3D"2" style=3D"font-family=
+:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0px;border-collapse:c=
+ollapse;height:2px;line-height:2px;border-top:2px solid rgb(0,102,67);font-=
+size:2px">=C2=A0</td></tr></tbody></table></td></tr></tbody></table><table =
+width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"gm=
+ail-m_2617566518690569878w95" style=3D"border-collapse:collapse;font-family=
+:Arial,Helvetica,sans-serif;font-size:small;text-decoration-style:initial;t=
+ext-decoration-color:initial;width:600px;max-width:600px"><tbody><tr><td al=
+ign=3D"center" class=3D"gmail-m_2617566518690569878mbl-txt-25" style=3D"fon=
+t-family:&quot;Trebuchet MS&quot;,Arial,sans-serif;margin:0px;border-collap=
+se:collapse;padding-top:10px;font-size:43px;color:rgb(0,102,67);font-weight=
+:bold">READY FOR YOUR FLIGHT?</td></tr><tr><td align=3D"center" style=3D"fo=
+nt-family:&quot;Trebuchet MS&quot;,Arial,sans-serif;margin:0px;border-colla=
+pse:collapse;font-size:14px;color:rgb(76,76,76)">Your flight with us is com=
+ing up! Check out important information below!</td></tr></tbody></table><ta=
+ble align=3D"center" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=
+=3D"border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-si=
+ze:small;text-decoration-style:initial;text-decoration-color:initial;width:=
+600px;max-width:600px"><tbody><tr><td style=3D"font-family:Roboto,RobotoDra=
+ft,Helvetica,Arial,sans-serif;margin:0px;border-collapse:collapse;padding-t=
+op:15px"><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"b=
+order-collapse:collapse;width:600px;max-width:600px;background-color:rgb(24=
+7,247,247)"><tbody><tr><td style=3D"font-family:&quot;Trebuchet MS&quot;,Ar=
+ial,sans-serif;margin:0px;border-collapse:collapse;padding:15px 10px;font-s=
+ize:22px;line-height:24px;color:rgb(76,76,76);text-align:center;font-weight=
+:bold">FLIGHT ITINERARY</td></tr></tbody></table></td></tr></tbody></table>=
+<table align=3D"center" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" st=
+yle=3D"border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font=
+-size:small;text-decoration-style:initial;text-decoration-color:initial;wid=
+th:600px;max-width:600px"><tbody><tr><td align=3D"center" style=3D"font-fam=
+ily:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0px;border-collaps=
+e:collapse;padding-top:10px"><table align=3D"center" cellspacing=3D"0" cell=
+padding=3D"0" border=3D"0" class=3D"gmail-m_2617566518690569878w95" style=
+=3D"border-collapse:collapse;width:600px;max-width:600px"><tbody><tr><td al=
+ign=3D"center" style=3D"font-family:Roboto,RobotoDraft,Helvetica,Arial,sans=
+-serif;margin:0px;border-collapse:collapse;font-size:0px;vertical-align:top=
+"><div class=3D"gmail-m_2617566518690569878mw100" style=3D"display:inline-b=
+lock;width:100px;max-width:100px;vertical-align:middle"><table cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-collapse:collapse;wid=
+th:100px"><tbody><tr><td align=3D"center" style=3D"font-family:Roboto,Robot=
+oDraft,Helvetica,Arial,sans-serif;margin:0px;border-collapse:collapse;paddi=
+ng:10px 0px"><u></u><img src=3D"https://static.cdn.responsys.net/i2/respons=
+ysimages/content/frontiera/circle_TTN.png" width=3D"67" alt=3D"" class=3D"g=
+mail-CToWUd" style=3D"width: 67px; max-width: 67px; display: block; padding=
+: 0px; outline: 0px; border: 0px; margin: 0px auto;"></td></tr></tbody></ta=
+ble></div><div class=3D"gmail-m_2617566518690569878mw100" style=3D"display:=
+inline-block;width:500px;max-width:500px;vertical-align:middle"><table cell=
+spacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-collapse:colla=
+pse;width:500px"><tbody><tr><td class=3D"gmail-m_2617566518690569878mbl-iti=
+n-text" style=3D"font-family:&quot;Trebuchet MS&quot;,Arial,sans-serif;marg=
+in:0px;border-collapse:collapse;padding-bottom:5px;font-size:16px;color:rgb=
+(0,102,67)">YOUR TRIP CONFIRMATION CODE IS<span>=C2=A0</span><strong>VD9D34=
+23</strong></td></tr><tr><td class=3D"gmail-m_2617566518690569878mbl-txt-12=
+-ctr" style=3D"font-family:&quot;Trebuchet MS&quot;,Arial,sans-serif;margin=
+:0px;border-collapse:collapse;font-size:12px;color:rgb(76,76,76)">Get your =
+boarding pass once you&#39;ve checked=E2=80=91in =E2=80=93 available 24 hou=
+rs before your flight.</td></tr></tbody></table></div></td></tr></tbody></t=
+able></td></tr></tbody></table><table align=3D"center" cellspacing=3D"0" ce=
+llpadding=3D"0" border=3D"0" style=3D"border-collapse:collapse;font-family:=
+Arial,Helvetica,sans-serif;font-size:small;text-decoration-style:initial;te=
+xt-decoration-color:initial;width:600px;max-width:600px"><tbody><tr><td sty=
+le=3D"font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0px;=
+border-collapse:collapse;padding-top:10px"><table align=3D"center" cellspac=
+ing=3D"0" cellpadding=3D"0" border=3D"0" class=3D"gmail-m_26175665186905698=
+78w95" style=3D"border-collapse:collapse;width:598px;max-width:600px;border=
+:2px solid rgb(232,232,232)"><tbody><tr><td align=3D"center" style=3D"font-=
+family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0px;border-coll=
+apse:collapse;padding:10px 0px"><table align=3D"center" cellspacing=3D"0" c=
+ellpadding=3D"0" border=3D"0" class=3D"gmail-m_2617566518690569878w95" styl=
+e=3D"border-collapse:collapse;width:566px"><tbody><tr><td colspan=3D"3" sty=
+le=3D"font-family:&quot;Trebuchet MS&quot;,Arial,sans-serif;margin:0px;bord=
+er-collapse:collapse;padding-bottom:20px;font-size:16px;color:rgb(76,76,76)=
+;font-weight:bold;text-align:center">Departing Flight 6261<span style=3D"fo=
+nt-weight:normal;font-size:14px;color:rgb(109,109,109)"><br>Aug. 20, 2018</=
+span></td></tr><tr><td align=3D"center" valign=3D"middle" class=3D"gmail-m_=
+2617566518690569878mbl-txt-12" style=3D"font-family:&quot;Trebuchet MS&quot=
+;,Arial,sans-serif;margin:0px;border-collapse:collapse;font-size:14px;color=
+:rgb(76,76,76)">TTN<br>8:45 PM</td><td valign=3D"middle" align=3D"center" s=
+tyle=3D"font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0p=
+x;border-collapse:collapse"><img src=3D"https://static.cdn.responsys.net/i2=
+/responsysimages/frontiera/contentlibrary/flight_global_modules/72_hour/mod=
+ules/images/non_stop_dt.png" width=3D"409" alt=3D"" class=3D"gmail-m_261756=
+6518690569878swap_itin_nonstop gmail-CToWUd" style=3D"width: 409px; max-wid=
+th: 409px; display: block; padding: 0px; outline: 0px; border: 0px; margin:=
+ 0px auto;"></td><td valign=3D"middle" align=3D"center" class=3D"gmail-m_26=
+17566518690569878mbl-txt-12" style=3D"font-family:&quot;Trebuchet MS&quot;,=
+Arial,sans-serif;margin:0px;border-collapse:collapse;font-size:14px;color:r=
+gb(76,76,76)">COS<br>10:34 PM</td></tr><tr><td align=3D"center" colspan=3D"=
+3" valign=3D"middle" class=3D"gmail-m_2617566518690569878mbl-txt-10" style=
+=3D"font-family:&quot;Trebuchet MS&quot;,Arial,sans-serif;margin:0px;border=
+-collapse:collapse;padding-top:20px;font-size:12px;color:rgb(76,76,76);vert=
+ical-align:middle"><div style=3D"vertical-align:middle"><img src=3D"https:/=
+/static.cdn.responsys.net/i2/responsysimages/frontiera/contentlibrary/fligh=
+t_global_modules/72_hour/modules/images/itin_clock.png" width=3D"16" alt=3D=
+"" class=3D"gmail-m_2617566518690569878swap_itin_clock_mbl gmail-CToWUd" st=
+yle=3D"width: 16px; max-width: 16px; display: inline-block; padding: 0px; o=
+utline: 0px; border: 0px; margin: 0px auto; vertical-align: middle;"><span>=
+=C2=A0</span>=C2=A0<span>=C2=A0</span><span style=3D"font-weight:bold">Tota=
+l Time:</span><span>=C2=A0</span>1 hrs 49 min | Nonstop</div></td></tr></tb=
+ody></table></td></tr></tbody></table><table align=3D"center" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" class=3D"gmail-m_2617566518690569878w=
+95" style=3D"border-collapse:collapse;width:600px;max-width:600px;backgroun=
+d-color:rgb(232,232,232)"><tbody><tr></tr></tbody></table></td></tr></tbody=
+></table><table align=3D"center" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" style=3D"border-collapse:collapse;font-family:Arial,Helvetica,sans-s=
+erif;font-size:small;text-decoration-style:initial;text-decoration-color:in=
+itial;width:600px;max-width:600px"><tbody><tr><td style=3D"font-family:Robo=
+to,RobotoDraft,Helvetica,Arial,sans-serif;margin:0px;border-collapse:collap=
+se;padding-top:10px"><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0=
+" style=3D"border-collapse:collapse;width:600px;max-width:600px;background-=
+color:rgb(247,247,247)"><tbody><tr><td style=3D"font-family:&quot;Trebuchet=
+ MS&quot;,Arial,sans-serif;margin:0px;border-collapse:collapse;padding:15px=
+ 10px;font-size:22px;line-height:24px;color:rgb(76,76,76);text-align:center=
+;font-weight:bold"><span class=3D"gmail-il">FRONTIER</span><span>=C2=A0</sp=
+an>TRIP CHECKLIST</td></tr></tbody></table></td></tr></tbody></table><br cl=
+ass=3D"gmail-Apple-interchange-newline"><br><div>Here is your travel itiner=
+ary.=C2=A0 I will send the target info over IRC.</div><div><br></div><div><=
+br></div><div>-Bob</div></div>
+
+--000000000000a974580573ea58fa--
+
+From - Wed Aug 22 00:57:23 2018
+X-Account-Key: account1
+X-UIDL: GmailId1655f2d35f65b080
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+X-Mozilla-Keys:                                                                                 
+Delivered-To: secret.maildrop.sketchycorp@gmail.com
+Received: by 2002:a25:aa0e:0:0:0:0:0 with SMTP id s14-v6csp5859210ybi;
+        Tue, 21 Aug 2018 18:12:43 -0700 (PDT)
+X-Received: by 2002:a19:53d6:: with SMTP id h83-v6mr19206382lfl.15.1534900123589;
+        Tue, 21 Aug 2018 18:08:43 -0700 (PDT)
+X-Received: by 2002:a19:53d6:: with SMTP id h83-v6mr19206365lfl.15.1534900122775;
+        Tue, 21 Aug 2018 18:08:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1534900122; cv=none;
+        d=google.com; s=arc-20160816;
+        b=aXMWPnoWe1ugCgibLvv54mVqIpTiIGDEmm6NdHizzPzIjsx+Uz5sFU+5Doa/s43/SG
+         2NQ2+jDtTzDuJatxzzFUWrS77Ax19miRxADoY35BV+SLHj5wrZsPR+mJAPX4Urr1oaMr
+         cMr3y3385IWfs8/okwjz5WL6vkG9ameJ+u5ufQS5bV9aWPZwC0GYSZsRb3jg0sSnpNJ/
+         WACiIYnaJeWWblWux7uiUOsslOW+z8ZMi86AgDUHG988ZTFhumrRWL059Sm1idiztgcv
+         hVBL02lLHUPHPOz/fyRDvLYFexqzQOEfFBKv/pOYAUAjquURPz0LEQWzNR9ojotA5vAj
+         OcQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature
+         :arc-authentication-results;
+        bh=X4Wpo2tFe2qVmOhKpwH1wNtzQPJ8v0nk0DmFLCEKBbo=;
+        b=HkwXvt82yxB6vCVkER45NEilROmpU6Viv3FE4Q03/9DTGzbzPPG+GaKgldkllC7Fcz
+         fyy8pEgagVmF0tT/2WVGFJESDvpsEHM67p9FP7aYN+4Mn30p23GlYNb1wzfFt9Dr46aO
+         5KYWKkb0z3hhjxoJTbMNlfAyby6KvwBoAQkoftKSGCaAhGyqib0uezvdmAW32JcdaCUZ
+         fS274x3A5zvtTAIUhUPYD7vuwbODVvT0f+44JJTBqsx3mmhzVuzTz6ZF0d9EW88V0B2j
+         bLjUn4iETNT3ULcJ0j15nSPZ8L1RgxM+FtcHB2AeDwrnWvUn2wmnRPVHJh9O2IDkcY+b
+         X8LA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=OrXfN0QC;
+       spf=pass (google.com: domain of secret.mailsend.sketchycorp@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=secret.mailsend.sketchycorp@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <secret.mailsend.sketchycorp@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id u65-v6sor22226lfg.105.2018.08.21.18.08.42
+        for <secret.maildrop.sketchycorp@gmail.com>
+        (Google Transport Security);
+        Tue, 21 Aug 2018 18:08:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of secret.mailsend.sketchycorp@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=OrXfN0QC;
+       spf=pass (google.com: domain of secret.mailsend.sketchycorp@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=secret.mailsend.sketchycorp@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=X4Wpo2tFe2qVmOhKpwH1wNtzQPJ8v0nk0DmFLCEKBbo=;
+        b=OrXfN0QCOEpjlwhD/MctebRA+KnA2dhYsdBN0e4Md8S7HNKx3XCk5BZd3LyYqo4Ras
+         CXNIj0C3HyJB0ShbrEuXuPiRJKiVja6FuqCBpwNKioTWoZApy8pvR7xh8hkRZAS+yBAT
+         CHH5Ov9TL3G3tfUIKdSI6TSfA8Nj72c/BLYWPZJQzn/swi8ZslaO52Kv0ENW3gT8+/L8
+         yVmdY7MHqDnICnXfqATHkNHtpbXCQN361MrlcJ8M23C+o/wpMnWm0V9ImOOMdSDKTMei
+         rg4L6b+UpUmixiKTraPAHcIWemsm/2pmjKX7ykSf28dceijZMr/sC8N0kmeznTwphr2t
+         wuAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=X4Wpo2tFe2qVmOhKpwH1wNtzQPJ8v0nk0DmFLCEKBbo=;
+        b=ZhcDXNl7C20QhYFNHxg1KWyhLQxOn+HnJNRFd2Av3oLaGs5dPjzXZg1jMaOynbowR9
+         IAFLZWhJ2TXxfoJ0J1wGFxHYgQzN0GRiVusmKzg0sAotylqia2Bf+2PFSI6gW2EvnqYc
+         oIxb5ap5SWmSOIzYOoy96+RM6Fph62LjvDFVHNp2qlCY2SLgO1SHzfaVhcRjBCS23AV0
+         2f09V5aoO1V6c1JQrd0lMgy++YcXe/rQUFwo1w/eE3SZ1uHAxg4JrabI2vpRx+uZt1QB
+         cb7dJjp1KXakgfaI4eMTuPX1zqC6z1g//2uhbGLiGw8RDumJ4XxLeKPOweNt69WJIo3G
+         8NPg==
+X-Gm-Message-State: AOUpUlHg1GpzNWHnwBK3tWlmcwwJZf2AvJPryjEfrCFaGRP1z2xYURVA
+	0Mc9DyR+n3fOK5rwl7AiCuDCyObNdH/BT3E1Eh5AEg==
+X-Google-Smtp-Source: AA+uWPy15WNISbucHuSVmRpm6sl/EXXkkbmDOKHMC3zfEcW53pUT20HW94mC0iAWDVg9BZtFrYRDODxG80/ue1JR0C4=
+X-Received: by 2002:a19:145b:: with SMTP id k88-v6mr17013019lfi.132.1534900121999;
+ Tue, 21 Aug 2018 18:08:41 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:a19:1c84:0:0:0:0:0 with HTTP; Tue, 21 Aug 2018 18:08:41
+ -0700 (PDT)
+From: Alice Johnson <secret.mailsend.sketchycorp@gmail.com>
+Date: Tue, 21 Aug 2018 21:08:41 -0400
+Message-ID: <CAD3XvCwdeuDrcS6Xz-1SZ4ZQWMAXxD0xYj_pk6zdckXjNfaWew@mail.gmail.com>
+Subject: Travel Itinerary
+To: secret.maildrop.sketchycorp@gmail.com
+Content-Type: multipart/alternative; boundary="00000000000089a4090573fbc875"
+
+--00000000000089a4090573fbc875
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+[image: FRONTIER Low Fares Done Right]
+<https://emails.flyfrontier.com/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGNn1wHU=
+IHIbM3uDDdubLzc4ioa8ozcTCbTrRKucEGzdhmSi6p2FVXtpKX%3DYYWRT&_ei_=3DEq2tf9zs5=
+9idfPO1Sc_9Bbn_G86ig1Slim18n20HOSnW7ymUX-yPxNPvKLNrtQGTe7UeSzzwDI7-gGlvjQbx=
+vVZI_g.>
+
+READY FOR YOUR FLIGHT?
+Your flight with us is coming up! Check out important information below!
+FLIGHT ITINERARY
+
+YOUR TRIP CONFIRMATION CODE IS *VD9D3423*
+Get your boarding pass once you've checked=E2=80=91in =E2=80=93 available 2=
+4 hours before
+your flight.
+Departing Flight 6261
+Aug. 20, 2018
+TTN
+8:45 PM COS
+10:34 PM
+
+   Total Time: 1 hrs 49 min | Nonstop
+FRONTIER TRIP CHECKLIST
+
+Here is your travel itinerary.  I will send the target info over IRC.
+
+
+-Bob
+
+
+#spyglass hooked gyve
+
+--00000000000089a4090573fbc875
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div class=3D"gmail_quote"><br><div dir=3D"ltr"><table cel=
+lspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-collapse:coll=
+apse;font-family:Arial,Helvetica,sans-serif;font-size:small;text-decoration=
+-style:initial;text-decoration-color:initial;width:600px;max-width:600px;ba=
+ckground-color:rgb(0,172,236)"><tbody><tr><td height=3D"50" class=3D"gmail-=
+m_4529515952695488876gmail-m_2617566518690569878mbl-preheader" style=3D"fon=
+t-family:&quot;Trebuchet MS&quot;,Arial,sans-serif;margin:0px;border-collap=
+se:collapse;height:50px;font-size:13px;line-height:28px;color:rgb(255,255,2=
+55);text-align:center"></td></tr></tbody></table><table align=3D"center" ce=
+llspacing=3D"0" cellpadding=3D"0" border=3D"0" class=3D"gmail-m_45295159526=
+95488876gmail-m_2617566518690569878mbl-margin-top" style=3D"border-collapse=
+:collapse;font-family:Arial,Helvetica,sans-serif;font-size:small;text-decor=
+ation-style:initial;text-decoration-color:initial;width:564px;max-width:564=
+px"><tbody><tr><td align=3D"left" class=3D"gmail-m_4529515952695488876gmail=
+-m_2617566518690569878logo-cell" style=3D"font-family:Roboto,RobotoDraft,He=
+lvetica,Arial,sans-serif;margin:0px;border-collapse:collapse;width:378px;pa=
+dding-top:20px;padding-right:45px"><a href=3D"https://emails.flyfrontier.co=
+m/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGNn1wHUIHIbM3uDDdubLzc4ioa8ozcTCbTrRK=
+ucEGzdhmSi6p2FVXtpKX%3DYYWRT&amp;_ei_=3DEq2tf9zs59idfPO1Sc_9Bbn_G86ig1Slim1=
+8n20HOSnW7ymUX-yPxNPvKLNrtQGTe7UeSzzwDI7-gGlvjQbxvVZI_g." style=3D"color:rg=
+b(17,85,204);text-decoration:none" target=3D"_blank"><img src=3D"https://st=
+atic.cdn.responsys.net/i2/responsysimages/content/frontiera/Logo.png" width=
+=3D"220" alt=3D"FRONTIER Low Fares Done Right" class=3D"gmail-m_45295159526=
+95488876gmail-CToWUd" style=3D"border: 0px; width: 220px; max-width: 220px;=
+ display: block; padding: 0px; outline: 0px; font-family: &quot;Trebuchet M=
+S&quot;, Arial, sans-serif; font-size: 14px; line-height: 20px; color: rgb(=
+0, 102, 67);"></a></td><td align=3D"center" class=3D"gmail-m_45295159526954=
+88876gmail-m_2617566518690569878animal-cell" style=3D"font-family:Roboto,Ro=
+botoDraft,Helvetica,Arial,sans-serif;margin:0px;border-collapse:collapse;wi=
+dth:141px"><img src=3D"https://static.cdn.responsys.net/i2/responsysimages/=
+content/frontiera/griz_crop.png" width=3D"116" alt=3D"" class=3D"gmail-m_45=
+29515952695488876gmail-CToWUd" style=3D"width: 116px; max-width: 116px; dis=
+play: block; padding: 0px; outline: 0px; border: 0px; font-family: &quot;Tr=
+ebuchet MS&quot;, Arial, sans-serif; font-size: 14px; line-height: 20px; co=
+lor: rgb(0, 102, 67);"></td></tr></tbody></table><table width=3D"100%" cell=
+padding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:colla=
+pse;font-family:Arial,Helvetica,sans-serif;font-size:small;text-decoration-=
+style:initial;text-decoration-color:initial;width:600px;max-width:600px"><t=
+body><tr><td style=3D"font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-s=
+erif;margin:0px;border-collapse:collapse"><table width=3D"100%" cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;wid=
+th:600px"><tbody><tr><td height=3D"2" style=3D"font-family:Roboto,RobotoDra=
+ft,Helvetica,Arial,sans-serif;margin:0px;border-collapse:collapse;height:2p=
+x;line-height:2px;border-top:2px solid rgb(0,102,67);font-size:2px">=C2=A0<=
+/td></tr></tbody></table></td></tr></tbody></table><table width=3D"100%" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"gmail-m_45295159526=
+95488876gmail-m_2617566518690569878w95" style=3D"border-collapse:collapse;f=
+ont-family:Arial,Helvetica,sans-serif;font-size:small;text-decoration-style=
+:initial;text-decoration-color:initial;width:600px;max-width:600px"><tbody>=
+<tr><td align=3D"center" class=3D"gmail-m_4529515952695488876gmail-m_261756=
+6518690569878mbl-txt-25" style=3D"font-family:&quot;Trebuchet MS&quot;,Aria=
+l,sans-serif;margin:0px;border-collapse:collapse;padding-top:10px;font-size=
+:43px;color:rgb(0,102,67);font-weight:bold">READY FOR YOUR FLIGHT?</td></tr=
+><tr><td align=3D"center" style=3D"font-family:&quot;Trebuchet MS&quot;,Ari=
+al,sans-serif;margin:0px;border-collapse:collapse;font-size:14px;color:rgb(=
+76,76,76)">Your flight with us is coming up! Check out important informatio=
+n below!</td></tr></tbody></table><table align=3D"center" cellspacing=3D"0"=
+ cellpadding=3D"0" border=3D"0" style=3D"border-collapse:collapse;font-fami=
+ly:Arial,Helvetica,sans-serif;font-size:small;text-decoration-style:initial=
+;text-decoration-color:initial;width:600px;max-width:600px"><tbody><tr><td =
+style=3D"font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0=
+px;border-collapse:collapse;padding-top:15px"><table cellspacing=3D"0" cell=
+padding=3D"0" border=3D"0" style=3D"border-collapse:collapse;width:600px;ma=
+x-width:600px;background-color:rgb(247,247,247)"><tbody><tr><td style=3D"fo=
+nt-family:&quot;Trebuchet MS&quot;,Arial,sans-serif;margin:0px;border-colla=
+pse:collapse;padding:15px 10px;font-size:22px;line-height:24px;color:rgb(76=
+,76,76);text-align:center;font-weight:bold">FLIGHT ITINERARY</td></tr></tbo=
+dy></table></td></tr></tbody></table><table align=3D"center" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0" style=3D"border-collapse:collapse;font-f=
+amily:Arial,Helvetica,sans-serif;font-size:small;text-decoration-style:init=
+ial;text-decoration-color:initial;width:600px;max-width:600px"><tbody><tr><=
+td align=3D"center" style=3D"font-family:Roboto,RobotoDraft,Helvetica,Arial=
+,sans-serif;margin:0px;border-collapse:collapse;padding-top:10px"><table al=
+ign=3D"center" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" class=3D"gm=
+ail-m_4529515952695488876gmail-m_2617566518690569878w95" style=3D"border-co=
+llapse:collapse;width:600px;max-width:600px"><tbody><tr><td align=3D"center=
+" style=3D"font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin=
+:0px;border-collapse:collapse;font-size:0px;vertical-align:top"><div class=
+=3D"gmail-m_4529515952695488876gmail-m_2617566518690569878mw100" style=3D"d=
+isplay:inline-block;width:100px;max-width:100px;vertical-align:middle"><tab=
+le cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-collaps=
+e:collapse;width:100px"><tbody><tr><td align=3D"center" style=3D"font-famil=
+y:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0px;border-collapse:=
+collapse;padding:10px 0px"><u></u><img src=3D"https://static.cdn.responsys.=
+net/i2/responsysimages/content/frontiera/circle_TTN.png" width=3D"67" alt=
+=3D"" class=3D"gmail-m_4529515952695488876gmail-CToWUd" style=3D"width: 67p=
+x; max-width: 67px; display: block; padding: 0px; outline: 0px; border: 0px=
+; margin: 0px auto;"></td></tr></tbody></table></div><div class=3D"gmail-m_=
+4529515952695488876gmail-m_2617566518690569878mw100" style=3D"display:inlin=
+e-block;width:500px;max-width:500px;vertical-align:middle"><table cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-collapse:collapse;w=
+idth:500px"><tbody><tr><td class=3D"gmail-m_4529515952695488876gmail-m_2617=
+566518690569878mbl-itin-text" style=3D"font-family:&quot;Trebuchet MS&quot;=
+,Arial,sans-serif;margin:0px;border-collapse:collapse;padding-bottom:5px;fo=
+nt-size:16px;color:rgb(0,102,67)">YOUR TRIP CONFIRMATION CODE IS<span>=C2=
+=A0</span><strong>VD9D3423</strong></td></tr><tr><td class=3D"gmail-m_45295=
+15952695488876gmail-m_2617566518690569878mbl-txt-12-ctr" style=3D"font-fami=
+ly:&quot;Trebuchet MS&quot;,Arial,sans-serif;margin:0px;border-collapse:col=
+lapse;font-size:12px;color:rgb(76,76,76)">Get your boarding pass once you&#=
+39;ve checked=E2=80=91in =E2=80=93 available 24 hours before your flight.</=
+td></tr></tbody></table></div></td></tr></tbody></table></td></tr></tbody><=
+/table><table align=3D"center" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" style=3D"border-collapse:collapse;font-family:Arial,Helvetica,sans-s=
+erif;font-size:small;text-decoration-style:initial;text-decoration-color:in=
+itial;width:600px;max-width:600px"><tbody><tr><td style=3D"font-family:Robo=
+to,RobotoDraft,Helvetica,Arial,sans-serif;margin:0px;border-collapse:collap=
+se;padding-top:10px"><table align=3D"center" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" class=3D"gmail-m_4529515952695488876gmail-m_26175665186=
+90569878w95" style=3D"border-collapse:collapse;width:598px;max-width:600px;=
+border:2px solid rgb(232,232,232)"><tbody><tr><td align=3D"center" style=3D=
+"font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0px;borde=
+r-collapse:collapse;padding:10px 0px"><table align=3D"center" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" class=3D"gmail-m_4529515952695488876g=
+mail-m_2617566518690569878w95" style=3D"border-collapse:collapse;width:566p=
+x"><tbody><tr><td colspan=3D"3" style=3D"font-family:&quot;Trebuchet MS&quo=
+t;,Arial,sans-serif;margin:0px;border-collapse:collapse;padding-bottom:20px=
+;font-size:16px;color:rgb(76,76,76);font-weight:bold;text-align:center">Dep=
+arting Flight 6261<span style=3D"font-weight:normal;font-size:14px;color:rg=
+b(109,109,109)"><br>Aug. 20, 2018</span></td></tr><tr><td align=3D"center" =
+valign=3D"middle" class=3D"gmail-m_4529515952695488876gmail-m_2617566518690=
+569878mbl-txt-12" style=3D"font-family:&quot;Trebuchet MS&quot;,Arial,sans-=
+serif;margin:0px;border-collapse:collapse;font-size:14px;color:rgb(76,76,76=
+)">TTN<br>8:45 PM</td><td valign=3D"middle" align=3D"center" style=3D"font-=
+family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0px;border-coll=
+apse:collapse"><img src=3D"https://static.cdn.responsys.net/i2/responsysima=
+ges/frontiera/contentlibrary/flight_global_modules/72_hour/modules/images/n=
+on_stop_dt.png" width=3D"409" alt=3D"" class=3D"gmail-m_4529515952695488876=
+gmail-m_2617566518690569878swap_itin_nonstop gmail-m_4529515952695488876gma=
+il-CToWUd" style=3D"width: 409px; max-width: 409px; display: block; padding=
+: 0px; outline: 0px; border: 0px; margin: 0px auto;"></td><td valign=3D"mid=
+dle" align=3D"center" class=3D"gmail-m_4529515952695488876gmail-m_261756651=
+8690569878mbl-txt-12" style=3D"font-family:&quot;Trebuchet MS&quot;,Arial,s=
+ans-serif;margin:0px;border-collapse:collapse;font-size:14px;color:rgb(76,7=
+6,76)">COS<br>10:34 PM</td></tr><tr><td align=3D"center" colspan=3D"3" vali=
+gn=3D"middle" class=3D"gmail-m_4529515952695488876gmail-m_26175665186905698=
+78mbl-txt-10" style=3D"font-family:&quot;Trebuchet MS&quot;,Arial,sans-seri=
+f;margin:0px;border-collapse:collapse;padding-top:20px;font-size:12px;color=
+:rgb(76,76,76);vertical-align:middle"><div style=3D"vertical-align:middle">=
+<img src=3D"https://static.cdn.responsys.net/i2/responsysimages/frontiera/c=
+ontentlibrary/flight_global_modules/72_hour/modules/images/itin_clock.png" =
+width=3D"16" alt=3D"" class=3D"gmail-m_4529515952695488876gmail-m_261756651=
+8690569878swap_itin_clock_mbl gmail-m_4529515952695488876gmail-CToWUd" styl=
+e=3D"width: 16px; max-width: 16px; display: inline-block; padding: 0px; out=
+line: 0px; border: 0px; margin: 0px auto; vertical-align: middle;"><span>=
+=C2=A0</span>=C2=A0<span>=C2=A0</span><span style=3D"font-weight:bold">Tota=
+l Time:</span><span>=C2=A0</span>1 hrs 49 min | Nonstop</div></td></tr></tb=
+ody></table></td></tr></tbody></table><table align=3D"center" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" class=3D"gmail-m_4529515952695488876g=
+mail-m_2617566518690569878w95" style=3D"border-collapse:collapse;width:600p=
+x;max-width:600px;background-color:rgb(232,232,232)"><tbody><tr></tr></tbod=
+y></table></td></tr></tbody></table><table align=3D"center" cellspacing=3D"=
+0" cellpadding=3D"0" border=3D"0" style=3D"border-collapse:collapse;font-fa=
+mily:Arial,Helvetica,sans-serif;font-size:small;text-decoration-style:initi=
+al;text-decoration-color:initial;width:600px;max-width:600px"><tbody><tr><t=
+d style=3D"font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin=
+:0px;border-collapse:collapse;padding-top:10px"><table cellspacing=3D"0" ce=
+llpadding=3D"0" border=3D"0" style=3D"border-collapse:collapse;width:600px;=
+max-width:600px;background-color:rgb(247,247,247)"><tbody><tr><td style=3D"=
+font-family:&quot;Trebuchet MS&quot;,Arial,sans-serif;margin:0px;border-col=
+lapse:collapse;padding:15px 10px;font-size:22px;line-height:24px;color:rgb(=
+76,76,76);text-align:center;font-weight:bold"><span class=3D"gmail-m_452951=
+5952695488876gmail-il">FRONTIER</span><span>=C2=A0</span>TRIP CHECKLIST</td=
+></tr></tbody></table></td></tr></tbody></table><br class=3D"gmail-m_452951=
+5952695488876gmail-Apple-interchange-newline"><br><div>Here is your travel =
+itinerary.=C2=A0 I will send the target info over IRC.</div><div><br></div>=
+<div><br></div><div>-Bob</div></div>
+</div><div><br></div><br><div>#spyglass hooked gyve</div></div>
+
+--00000000000089a4090573fbc875--
+

@@ -1,0 +1,14 @@
+---
+:id: 123870619
+:submitters:
+- :name: Epi Torres-Smith
+  :email: epifanio@princeton.edu
+- :name: William Svoboda
+  :email: wsvoboda@princeton.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2022-04-26 18:30:35.745058000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2022-04-26 11:30:35.745058000 Z
+:status: processed
+:score: 100.0

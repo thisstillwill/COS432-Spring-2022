@@ -1,0 +1,112 @@
+Authors: Will & Epi
+
+---
+
+1-Word Passwords:
+
+
+Distributed
+
+We found this password by using the list of the most common 100,000 English words and the bruteforce-luks tool to look for the password that decrypted the encrypted partition of the suspect's disk. We used the following terminal command to accomplish this: 
+
+sudo bruteforce-luks -t 6 -f wiki-100k.txt /dev/sdb2. 
+
+
+themselves
+
+We found this password for decrypting chatlog files in the .bash-history file in /mnt2/home/bob.
+
+--
+
+2-Word Tokens:
+
+
+fishery rattle
+
+We found a shell script (bootlocal.sh) in /mnt1/opt/ that contains this token and runs a single command: openvt -s -w /opt/intrusion.sh
+
+
+syndesis thinner
+
+We found a shell script (intrusion.sh) in /mnt1/opt/ that contains this token and a script that will clear the disk.
+
+
+rooftree inspirit
+
+We found a config file for grub (grub.cfg) in /mnt3/grub that contains this token and configures the different options at boot.
+
+
+satang taint
+
+We found a bash history file (.bash-history) in /mnt2/home/bob that contains this token and shows Bob's attempts to encrypt two chat log files.
+
+
+diesis bething
+
+We found a chat log file (chatlog0.txt) on bob's Desktop (/mnt2/home/bob/Desktop) that contains a conversation between Alice and Bob regarding Bob's travel itinerary. 
+
+
+boshaul scuttle
+
+We found an encrypted chat log file (chatlog1.txt.enc) in /mnt2/home/bob/.irc that contains this token and a conversation between Alice and Bob that describes the information of a "target" individual. This file also describes a special method used to encrypt another chat log file in order to confuse potential prying eyes. We were able to decrypt this encrypted file by using the compile.sh and decrypt.sh files in the folder and the "themselves" password.
+
+
+cognoman diluvial
+
+We found a sqlite database file (places.sqlite) in /mnt2/home/bob/.mozilla/firefox/rs9p00c.default. One of the tables in this database file (moz_places) contains a list of websites that correspond to Bob's last browser session. One of the tabs corresponded to a Google search by Bob about being framed for murder and contained this token.
+ 
+---
+
+3-Word Tokens:
+
+
+spyglass hooked gyve
+
+We found an email inbox file (Inbox) in /mnt2/home/bob/.thunderbird/afmtp1ng.default/Mail/pop.gmail.com that contains this token and an email that shares a travel itinerary; the email also describes sharing information about a "target" individual over IRC.
+
+
+<gait.gymkhana.heel>
+
+We found this token in a file containing an RSA key (authorized_keys) in /mnt2/home/bob/.ssh; the key in this file seems to correspond to mallory@sketchybackdoor.
+
+
+_ulema_military_fidge_
+
+We found a log file (auth.log) in /mnt2/var/log that contains this token and shows that an individual with the username "mallory" logged into Bob's device on August 22.
+
+---
+
+4-Word Tokens:
+
+
+frowzy mazzard orcein aspirin
+
+We found an encrypted chat log file (chatlog2.txt.enc) in /mnt2/home/bob/.irc that contains this token and a conversation between Alice and Bob that includes a "target" individual's dossier containing sensitive information (such as credit card details). We were able to decrypt this encrypted file by using the compile.sh and decrypt.sh files in the folder and the "themselves" password.
+
+---
+
+Transaction IDs:
+
+In /home/bob/.bitcoin on the encrypted partition, we found a file named wallet.dat with the following contents:
+
+	L1JHBR39uUVVvU27SFmYdA6SAmCdGYHYSLPYrMVgGfDZSACrmaPy
+
+This is the private key of a bitcoin wallet. We found the corresponding Bitcoin Address by pasting the private key into https://www.bitaddress.org/:
+
+	12Wn1oSUfLa2ayXw9MGXm9rHbKjY5w1PST
+
+We entered the address into the Bitcoin Explorer on https://www.blockchain.com/explorer, and found two Bitcoin transaction IDs associated with the address:
+
+	8eb9adc9e1d4237ee8da2998eb954683b955fc675e1c327c3494426b4da09813
+
+	386bfdacd68f1d095d0829da4c4e17f1b51c598c6bcb65a8ecb63ea4a8a310e0
+
+---
+
+References:
+
+The list of the top 100,000 English words was found here: 
+https://gist.githubusercontent.com/h3xx/1976236/raw/bbabb412261386673eff521dddbe1dc815373b1d/wiki-100k.txt. 
+
+The GitHub repo corresponding to the bruteforce-luks tool can be found here: 
+https://github.com/glv2/bruteforce-luks.

@@ -1,0 +1,29 @@
+Êin‘ï”gk‡«1Žqíe#ere is the dossier:
+
+	Mother's maiden name:
+		Garcia
+	SSN:
+		585-67-1234
+	Birthday:
+		February 12, 1985
+	Age:
+		33 years old
+	Phone:
+		555-863-6201
+	Country code:
+		+1
+	MasterCard:
+		5131 2813 0000 1234
+	Expires:
+		6/2022
+	CVC2:
+		896
+
+
+	
+14:05:09|Alice>Did you get the link to the picture I sent?
+14:05:30|Bob>Yes.  I just downloaded it.
+14:05:40|Bob>Don't forget to send me the payment
+
+#frowzy mazzard orcein aspirin
+
