@@ -4,7 +4,7 @@ This repository contains my assignment submissions for [COS 432/ECE 432 Informat
 
 > How to secure computing systems, communications, and users. Basic cryptography; private and authenticated communication; software security; malware; operating system protection; network security; web security; physical security; cryptocurrencies and blockchains; privacy and anonymity; usable security; economics of security; ethics of security; legal and policy issues.
 
-The first three assignments were individual and focused on implementing cryptographic algorithms in Java. The second half of the course involved broader applications of information security during group assignments.
+The first three assignments were individual and focused on implementing cryptographic algorithms in Java. The second half of the course involved broader applications of information security through group assignments.
 
 ## Contents
 
