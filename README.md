@@ -8,7 +8,8 @@ The first three assignments were individual and focused on implementing cryptogr
 
 ## Contents
 
-- `Assignments` - Directory containing the source files and metadata for each assignment. Individual problem sets are located in subfolders and denoted using the number of the assignment:
+- `Assignments/` - Directory containing the source files and metadata for each assignment. 
+Individual problem sets are located in subfolders and denoted using the number of the assignment:
 
 ```txt
 .
